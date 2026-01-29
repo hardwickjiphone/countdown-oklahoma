@@ -6,47 +6,42 @@
 <title>Methenys Coming to Oklahoma</title>
 
 <style>
+/* Page reset */
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #0f172a;
+  min-height: 100vh;
+  text-align: center;
   color: #ffffff;
+
+  /* Background image */
+  background-image:
+    linear-gradient(
+      rgba(15, 23, 42, 0.75),
+      rgba(15, 23, 42, 0.75)
+    ),
+    url("IMG_3076.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  overflow: hidden;
 }
 
-/* Oklahoma silhouette background */
-.ok-bg {
-  position: fixed;
-  width: 120vw;
-  height: auto;
-  max-width: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  fill: #38bdf8;
-  opacity: 0.14;
-  z-index: 0;
-  pointer-events: none;
-}
-
+/* Main content container */
 .container {
-  position: relative;
   max-width: 480px;
   padding: 28px 20px;
-  z-index: 1;
 }
 
 /* Big headline */
 .hero {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 900;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   margin-bottom: 14px;
 }
 
@@ -54,10 +49,11 @@ body {
 .subhead {
   font-size: 1.1rem;
   font-weight: 600;
-  opacity: 0.85;
+  opacity: 0.9;
   margin-bottom: 22px;
 }
 
+/* Countdown grid */
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -65,10 +61,12 @@ body {
   margin-bottom: 26px;
 }
 
+/* Countdown boxes */
 .box {
-  background: rgba(30, 41, 59, 0.9);
+  background: rgba(30, 41, 59, 0.85);
   border-radius: 14px;
   padding: 14px 6px;
+  backdrop-filter: blur(4px);
 }
 
 .number {
@@ -78,30 +76,22 @@ body {
 
 .label {
   font-size: 0.7rem;
-  opacity: 0.7;
+  opacity: 0.75;
   margin-top: 4px;
   letter-spacing: 0.08em;
 }
 
+/* Footer */
 .footer {
   font-size: 0.7rem;
-  opacity: 0.6;
+  opacity: 0.65;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Oklahoma silhouette background -->
-<svg class="ok-bg"
-     viewBox="0 0 960 320"
-     preserveAspectRatio="xMidYMid meet"
-     xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 200h720l120-60h120v80H0z"/>
-</svg>
-
 <div class="container">
-
   <div class="hero">METHENYS COMING TO OKLAHOMA</div>
   <div class="subhead">August 1, 2030 • 5:00 PM Pacific Time</div>
 
