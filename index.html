@@ -20,6 +20,21 @@ body {
   overflow: hidden;
 }
 
+/* Oklahoma silhouette background */
+.ok-bg {
+  position: fixed;
+  width: 120vw;
+  height: auto;
+  max-width: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  fill: #38bdf8;
+  opacity: 0.14;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .container {
   position: relative;
   max-width: 480px;
@@ -68,19 +83,6 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* Oklahoma background */
-.ok-bg {
-  position: absolute;
-  width: 160%;
-  max-width: none;
-  left: -30%;
-  top: 55%;
-  transform: translateY(-50%);
-  fill: #38bdf8;
-  opacity: 0.12;
-  z-index: 0;
-}
-
 .footer {
   font-size: 0.7rem;
   opacity: 0.6;
@@ -91,7 +93,10 @@ body {
 <body>
 
 <!-- Oklahoma silhouette background -->
-<svg class="ok-bg" viewBox="0 0 960 320" xmlns="http://www.w3.org/2000/svg">
+<svg class="ok-bg"
+     viewBox="0 0 960 320"
+     preserveAspectRatio="xMidYMid meet"
+     xmlns="http://www.w3.org/2000/svg">
   <path d="M0 200h720l120-60h120v80H0z"/>
 </svg>
 
