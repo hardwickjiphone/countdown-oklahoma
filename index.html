@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Countdown to August 1, 2030</title>
+<title>Methenys Coming to Oklahoma</title>
 
 <style>
 body {
@@ -17,60 +17,139 @@ body {
   align-items: center;
   min-height: 100vh;
   text-align: center;
+  overflow: hidden;
 }
-.container { max-width: 420px; padding: 24px; }
-h1 { font-size: 1.4rem; margin-bottom: 16px; font-weight: 600; }
+
+.container {
+  position: relative;
+  max-width: 480px;
+  padding: 28px 20px;
+  z-index: 1;
+}
+
+/* Big headline */
+.hero {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+/* Subheading */
+.subhead {
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-bottom: 22px;
+}
+
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  margin: 24px 0;
+  margin-bottom: 26px;
 }
+
 .box {
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 12px 6px;
+  background: rgba(30, 41, 59, 0.9);
+  border-radius: 14px;
+  padding: 14px 6px;
 }
-.number { font-size: 1.6rem; font-weight: 700; }
-.label { font-size: 0.7rem; opacity: 0.75; margin-top: 4px; }
-.oklahoma { margin-top: 24px; }
-.footer { margin-top: 16px; font-size: 0.7rem; opacity: 0.6; }
+
+.number {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.label {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+}
+
+/* Oklahoma background */
+.ok-bg {
+  position: absolute;
+  width: 160%;
+  max-width: none;
+  left: -30%;
+  top: 55%;
+  transform: translateY(-50%);
+  fill: #38bdf8;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.footer {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
 </style>
 </head>
 
 <body>
-<div class="container">
-<h1>Countdown to August 1, 2030<br>5:00 PM (Pacific Time)</h1>
 
-<div class="countdown">
-  <div class="box"><div class="number" id="days">–</div><div class="label">DAYS</div></div>
-  <div class="box"><div class="number" id="hours">–</div><div class="label">HOURS</div></div>
-  <div class="box"><div class="number" id="minutes">–</div><div class="label">MINUTES</div></div>
-  <div class="box"><div class="number" id="seconds">–</div><div class="label">SECONDS</div></div>
-</div>
-
-<div class="oklahoma">
-<svg width="260" viewBox="0 0 960 320" fill="#38bdf8" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 200h720l120-60h120v80H0z"/>
+<!-- Oklahoma silhouette background -->
+<svg class="ok-bg" viewBox="0 0 960 320" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 200h720l120-60h120v80H0z"/>
 </svg>
-</div>
 
-<div class="footer">Live countdown • Opens anywhere</div>
+<div class="container">
+
+  <div class="hero">METHENYS COMING TO OKLAHOMA</div>
+  <div class="subhead">August 1, 2030 • 5:00 PM Pacific Time</div>
+
+  <div class="countdown">
+    <div class="box">
+      <div class="number" id="days">–</div>
+      <div class="label">DAYS</div>
+    </div>
+    <div class="box">
+      <div class="number" id="hours">–</div>
+      <div class="label">HOURS</div>
+    </div>
+    <div class="box">
+      <div class="number" id="minutes">–</div>
+      <div class="label">MINUTES</div>
+    </div>
+    <div class="box">
+      <div class="number" id="seconds">–</div>
+      <div class="label">SECONDS</div>
+    </div>
+  </div>
+
+  <div class="footer">Live countdown • Shareable link</div>
 </div>
 
 <script>
-const target = new Date("2030-08-01T17:00:00-07:00");
-function update() {
+const targetDate = new Date("2030-08-01T17:00:00-07:00");
+
+function updateCountdown() {
   const now = new Date();
-  const diff = target - now;
-  if (diff <= 0) return;
-  document.getElementById("days").textContent = Math.floor(diff / 86400000);
-  document.getElementById("hours").textContent = Math.floor(diff / 3600000) % 24;
-  document.getElementById("minutes").textContent = Math.floor(diff / 60000) % 60;
-  document.getElementById("seconds").textContent = Math.floor(diff / 1000) % 60;
+  const diff = targetDate - now;
+
+  if (diff <= 0) {
+    ["days","hours","minutes","seconds"].forEach(id => {
+      document.getElementById(id).textContent = "0";
+    });
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+  const minutes = Math.floor(diff / (1000 * 60)) % 60;
+  const seconds = Math.floor(diff / 1000) % 60;
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
 }
-update();
-setInterval(update, 1000);
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
+
 </body>
 </html>
